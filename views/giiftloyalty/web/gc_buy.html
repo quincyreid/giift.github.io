@@ -1,0 +1,166 @@
+<h1>
+	Buy a gift Card
+</h1>
+
+There are 2 ways to buy gift cards from Giift.com. The <a href="#" anchor-scroll="express" target="_self">express</a> does everything in a single step. The <a href="#" anchor-scroll="advanced" target="_self">advanced</a>, requires more steps but allows more control.
+<h2 id="express">
+	Express
+</h2>
+<p>
+	Giift.com has 2 ways to deliver a gift card: api or email. You can have Giift.com to send an email with the gift card code to your user for you or you can just get the code back to yourself.
+</p>
+<p>
+	In the near future we will also be able to deliver cards by sms.
+</p>
+<h3>
+	API
+</h3>
+<p>
+	Perform a post request to the following url: <a href="http://giift.github.io/api/cart.html#_buy_card_post" target="_blank">
+		<code>https://www.giift.com/api/cart/v1/buy/card</code>
+	</a>
+</p>
+<p>
+	Content-Type sould be either <code>application/x-www-form-urlencoded</code><!-- or <code>application/json</code>-->.
+</p>
+<p>
+	List of parameters:
+	<table  class="table table-bordered">
+		<tr>
+			<th>
+				Parameter
+			</th>
+			<th>
+				Description
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<code>dmo_id</code>
+			</td>
+			<td>
+				Id of the program for which to issue a card. The list of programs can be obtained by a query to <a href="http://giift.github.io/api/dmo.html#_dmo_all__date__get" target="_blank">
+					<code>https://www.giift.com/api/dmo/v1/dmo/all</code>.
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>amount</code>
+			</td>
+			<td>
+				Face value of the card to be issued.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>state</code>
+			</td>
+			<td>
+				Optional external id that will be visible in the response. Very useful to reconcile with merchant.
+			</td>
+		</tr>
+	</table>
+</p>
+<h3>
+	Email
+</h3>
+<p>
+	Perform a post request to the following url: <a href="http://giift.github.io/api/cart.html" target="_blank">
+		<code>https://www.giift.com/api/cart/v1/buy/card</code>
+	</a>
+</p>
+<p>
+	Content-Type sould be either <code>application/x-www-form-urlencoded</code><!-- or <code>application/json</code>-->.</p>
+<p>List of parameters:
+	<table class="table table-bordered">
+		<tr>
+			<th>
+				Parameter
+			</th>
+			<th>
+				Description
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<code>dmo_id</code>
+			</td>
+			<td>
+				Id of the program for which to issue a card. The list of programs can be obtained by a query to <a href="http://giift.github.io/api/dmo.html#_dmo_all__date__get" target="_blank">
+					<code>https://www.giift.com/api/dmo/v1/dmo/all</code>.
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>amount</code>
+			</td>
+			<td>
+				Face value of the card to be issued.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>state</code>
+			</td>
+			<td>
+				Optional external id that will be visible in the response. Very useful to reconcile with merchant.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>delivery_type</code>
+			</td>
+			<td>
+				String to define the type of delivery: in this case, it must be <code>offer</code>.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>delivery_data_rname</code>
+			</td>
+			<td>
+				Name of the person receiving the card.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>delivery_data_remail</code>
+			</td>
+			<td>
+				Email of the person receiving the card.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<code>delivery_data_date</code>
+			</td>
+			<td>
+				Date at which the card should be delivered. Default is today. Format is YYYY-MM-DD.
+			</td>
+		</tr>
+	</table>
+</p>
+<h3>
+	Bulk purchase
+</h3>
+<p>
+	This method allows the following :
+	<ul>
+		<li>buying multiple cards at once</li>
+		<li>specifying the card number</li>
+		<li>deliverying the card by email now or at a later date</li>
+	</ul>
+	For those advanced use case, refer to the <a href="http://giift.github.io/api/cart.html#_buy_card_post" target="_blank">method documentation</a>.
+</p>
+<h2 id="advanced">
+	Advanced
+</h2>
+<p>
+	Here are the steps that need to be performed to fully buy a card through this process.
+</p>
+<img src="images/cart_workflow_advanced.png"/>
+<p>
+	Coming soon. If you need it urgently, please <a href="mailto:development@giift.com">contact us</a>.
+</p>
